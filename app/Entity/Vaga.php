@@ -50,7 +50,8 @@ class Vaga{
                                             'data' => $this->data,
                                         ]);
 
-        echo "<pre>"; print_r($this); echo "</pre>"; exit;
+        // echo "<pre>"; print_r($this); echo "</pre>"; exit;
         // RETORNAR SUCESSO
+        return true;
     }
 }
