@@ -61,5 +61,41 @@ class Database{
         } catch(PDOException $e){
             die('Error: '.$e->getMessage());
         }
-    }   
+    }
+
+    /**
+     * Método responsável por executar queries
+     * @param string $query
+     * @param array $params
+     * @return PDOStatement
+     */
+    public function execute($query, $params = []){
+        try{
+
+            $statement = $this->connection->prepare($query);
+            $statement->execute($params);
+            return $statement;
+           
+        } catch(PDOException $e){
+            die('Error: '.$e->getMessage());
+        }
+    }
+    
+    /**
+     * Método responsável por inserir dados
+     * @param array $values [ field => value]
+     * @return integer
+     */
+    public function insert($values){
+        // Dados da query
+        $fields = array_keys($values);
+        $binds = array_pad([], count($fields), '?');
+        
+        $query = 'INSERT INTO '.$this->table.' ('.implode(',' ,$fields).') VALUES ('.implode(',', $binds).')';
+        
+        // Executa o insert
+        $this->execute($query, array_values($values));
+
+        return$this->connection->lastInsertId();
+    }
 }

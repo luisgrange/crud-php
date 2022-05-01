@@ -43,8 +43,14 @@ class Vaga{
         // INSERIR A VAGA
         // ATRIBUIR ID NA INSTANCIA
         $obDatabase = new Database('vagas');
+        $this->id = $obDatabase->insert([
+                                            'titulo' => $this->titulo,
+                                            'descricao' => $this->descricao,
+                                            'ativo' => $this->ativo,
+                                            'data' => $this->data,
+                                        ]);
 
-        echo "<pre>"; print_r($obDatabase); echo "</pre>"; exit;
+        echo "<pre>"; print_r($this); echo "</pre>"; exit;
         // RETORNAR SUCESSO
     }
 }
