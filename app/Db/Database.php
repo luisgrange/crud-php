@@ -98,4 +98,24 @@ class Database{
 
         return$this->connection->lastInsertId();
     }
+
+        /**
+     * Método que executa consulta no bando de dados
+     * @param string $whre
+     * @param string $order
+     * @param string $limit
+     * @param string $fields
+     * @return PDOStatement
+     */
+    public function select($where=null, $order=null, $limit=null, $fields='*'){
+        // DADOS DA QUERY
+        $where = strlen($where)? 'WHERE '.$where : '';
+        $order = strlen($order)? 'ORDER BY '.$order : '';
+        $limit = strlen($limit)? 'LIMIT '.$limit : '';
+
+        $query = 'SELECT '.$fields.' FROM '.$this->table.' '.$where.' '.$order.' '.$limit;
+
+        // retorna a query
+        return $this->execute($query);
+    }
 }

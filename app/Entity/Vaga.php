@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Entity;
+
 use \App\Db\Database;
+use \PDO;
 
 class Vaga{
     /**
@@ -53,5 +55,16 @@ class Vaga{
         // echo "<pre>"; print_r($this); echo "</pre>"; exit;
         // RETORNAR SUCESSO
         return true;
+    }
+    /**
+     * Método que retorna as vagas
+     * @param string $whre
+     * @param string $order
+     * @param string $limit
+     * @return array
+     */
+    public static function getVagas($where=null, $order=null, $limit=null){
+        return( new Database('vagas'))->select($where, $order, $limit)
+                                      ->fetchAll(PDO::FETCH_CLASS,self::class);
     }
 }
