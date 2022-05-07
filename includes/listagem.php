@@ -1,3 +1,18 @@
+<?php
+    $resultados = '';
+
+    foreach($vagas as $vaga){
+        $resultados .= '<tr>
+                            <td>'.$vaga->id.'</td>
+                            <td>'.$vaga->titulo.'</td>
+                            <td>'.$vaga->descricao.'</td>
+                            <td>'.($vaga->ativo == 's'? 'ATIVO' : 'INATIVO').'</td>
+                            <td>'.$vaga->data.'</td>
+                            <td></td>
+                        </tr>';
+    }
+?>
+
 <main>
     <section>
         <a href="cadastrar.php">
@@ -18,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr></tr>
+                <?php echo $resultados ?>
             </tbody>
         </table>
     </section>
