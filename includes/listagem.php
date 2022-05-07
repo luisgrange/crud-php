@@ -7,7 +7,7 @@
                             <td>'.$vaga->titulo.'</td>
                             <td>'.$vaga->descricao.'</td>
                             <td>'.($vaga->ativo == 's'? 'ATIVO' : 'INATIVO').'</td>
-                            <td>'.$vaga->data.'</td>
+                            <td>'.date('d/m/Y à\s H:i:s',strtotime($vaga->data)).'</td>
                             <td></td>
                         </tr>';
     }

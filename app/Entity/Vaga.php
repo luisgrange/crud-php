@@ -58,7 +58,7 @@ class Vaga{
     }
     /**
      * Método que retorna as vagas
-     * @param string $whre
+     * @param string $where
      * @param string $order
      * @param string $limit
      * @return array

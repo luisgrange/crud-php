@@ -100,7 +100,7 @@ class Database{
     }
 
         /**
-     * Método que executa consulta no bando de dados
+     * Método que executa consulta no banco de dados
      * @param string $whre
      * @param string $order
      * @param string $limit
