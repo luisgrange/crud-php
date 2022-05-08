@@ -1,6 +1,8 @@
 <?php
     require __DIR__.'/vendor/autoload.php';
 
+    define('TITLE', 'Cadastrar vaga'); //define uma constante usada em diferentes arquivos
+
     use \App\Entity\Vaga;
 
     // Validação

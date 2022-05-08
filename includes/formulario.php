@@ -6,7 +6,7 @@
     </section>
 
     <h2 class="mt-3">
-        Cadastrar vaga
+        <?php echo TITLE ?>
     </h2>
 
     <form method="post">
