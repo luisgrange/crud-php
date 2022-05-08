@@ -12,12 +12,12 @@
     <form method="post">
         <div class="form-group">
             <label>Titulo</label>
-            <input type="text" name="titulo"  class="form-control">
+            <input type="text" name="titulo"  class="form-control" value="<?= $obVaga->titulo?>">
         </div>
 
         <div class="form-group mt-3">
             <label>Descrição</label>
-            <textarea name="descricao" class="form-control" rows="7"></textarea>
+            <textarea name="descricao" class="form-control" rows="7"><?= $obVaga->descricao?></textarea>
         </div>
 
         <div class="form-group mt-3">
@@ -31,7 +31,7 @@
                 
                 <div class="form-check form-check-inline">
                     <label class="form-control">
-                        <input type="radio" name="ativo" value="n"> Inativo
+                        <input type="radio" name="ativo" value="n" <?= $obVaga->ativo == 'n' ? 'checked' : ''?>> Inativo
                     </label>
                 </div> 
             </div>

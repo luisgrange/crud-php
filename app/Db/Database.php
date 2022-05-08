@@ -118,4 +118,23 @@ class Database{
         // retorna a query
         return $this->execute($query);
     }
+
+    /**
+     * Método que executa atualizações no banco de dados
+     * @param string $whre
+     * @param array $values [field => value]
+     * @return boolean
+     */
+    public function update($where, $values){
+        // DADOS DA QUERY
+        $fields = array_keys($values);
+
+        // MONTA A QUERY
+        $query = 'UPDATE '.$this->table.' SET '.implode('=?,',$fields).'=? WHERE '.$where;
+        
+        // EXECUTA A QUERY
+        $this->execute($query,array_values($values));
+
+        return true;
+    }
 }

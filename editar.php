@@ -10,8 +10,8 @@
         exit;
     }
 
+    // CONSULTA VAGA   
     $obVaga = Vaga::getVaga($_GET['id']);
-    // echo '<pre>';print_r($objVaga); echo '</pre>'; exit;
 
     // VALIDAÇÃO DA VAGA
     if(!$obVaga instanceof Vaga){
@@ -24,7 +24,8 @@
         $obVaga->descricao  = $_POST['descricao'];
         $obVaga->ativo      = $_POST['ativo'];
 
-        $obVaga->cadastrar();
+        // $obVaga->cadastrar();
+        $obVaga->atualizar();
 
         header('location: index.php?status=success');
         exit;

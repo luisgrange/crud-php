@@ -56,6 +56,20 @@ class Vaga{
         // RETORNAR SUCESSO
         return true;
     }
+
+    /**
+     * Método responsável por atualizar a vaga no banco
+     * @return boolean
+     */
+    public function atualizar(){
+        return (new Database('vagas'))->update('id = '.$this->id, [
+                                                'titulo' => $this->titulo,
+                                                'descricao' => $this->descricao,
+                                                'ativo' => $this->ativo,
+                                                'data' => $this->data,
+                                            ]);
+    }
+
     /**
      * Método que retorna as vagas
      * @param string $where
