@@ -137,4 +137,19 @@ class Database{
 
         return true;
     }
+
+    /**
+     * Método que executa a ação de excluir 
+     * @param string $where
+     * @return boolean
+     */
+    public function delete($where){
+        // MONTA A QUERY
+        $query = 'DELETE FROM '.$this->table.' WHERE '.$where;
+
+        // EXECUTA A QUERY
+        $this->execute($query);
+
+        return true;
+    }
 }

@@ -71,6 +71,14 @@ class Vaga{
     }
 
     /**
+     * Método responsável por excluir a vaga
+     * @return boolean
+     */
+    public function excluir(){
+        return (new Database('vagas'))->delete('id = '.$this->id);
+    }
+
+    /**
      * Método que retorna as vagas
      * @param string $where
      * @param string $order
@@ -92,4 +100,5 @@ class Vaga{
         return (new Database('vagas'))->select('id ='.$id)
                                       ->fetchObject(self::class);
     }
+
 }
