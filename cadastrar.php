@@ -4,10 +4,10 @@
     define('TITLE', 'Cadastrar vaga'); //define uma constante usada em diferentes arquivos
 
     use \App\Entity\Vaga;
+    $obVaga = new Vaga;
 
     // Validação
     if(isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])){
-        $obVaga = new Vaga;
 
         $obVaga->titulo     = $_POST['titulo'];
         $obVaga->descricao  = $_POST['descricao'];
